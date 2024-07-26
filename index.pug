@@ -1,0 +1,173 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Dashboard
+    link(rel="stylesheet" href="css/style.min.css")
+
+  body
+    .container
+      img(src="assets/icons/nav_menu.png", alt="menu").nav-btn
+      .mobile-menu
+        .logo
+          img(src="assets/logo/logo.png", alt="logo")
+          h1 Dashboard
+        nav
+          ul
+            li
+              img(src="assets/icons/key-square.png", alt="key")
+              a(href="#") Dashboard
+            li
+              img(src="assets/icons/3d-square.png", alt="square")
+              a(href="#") Product
+            li.active
+              img(src="assets/icons/user-square.png", alt="user")
+              a(href="#") Customers
+            li
+              img(src="assets/icons/wallet-money.png", alt="wallet")
+              a(href="#") Income
+            li
+              img(src="assets/icons/discount-shape.png", alt="discount")
+              a(href="#") Promote
+            li
+              img(src="assets/icons/message-question.png", alt="message")
+              a(href="#") Help
+        .profile
+          img(src="assets/avatar/avatar.png", alt="Evano")
+          .profile-info
+            p Evano
+            span Project Manager
+
+
+      .sidebar
+        .logo
+          img(src="assets/logo/logo.png", alt="logo")
+          h1 Dashboard
+        nav
+          ul
+            li
+              img(src="assets/icons/key-square.png", alt="key")
+              a(href="#") Dashboard
+            li
+              img(src="assets/icons/3d-square.png", alt="square")
+              a(href="#") Product
+            li.active
+              img(src="assets/icons/user-square.png", alt="user")
+              a(href="#") Customers
+            li
+              img(src="assets/icons/wallet-money.png", alt="wallet")
+              a(href="#") Income
+            li
+              img(src="assets/icons/discount-shape.png", alt="discount")
+              a(href="#") Promote
+            li
+              img(src="assets/icons/message-question.png", alt="message")
+              a(href="#") Help
+        .profile
+          img(src="assets/avatar/avatar.png", alt="Evano")
+          .profile-info
+            p Evano
+            span Project Manager
+
+      .main-content
+        .header
+          h1 Hello Evano 👋
+        
+        .content
+          .top-content
+            .left-side
+              h2 All Customers
+              a(href="#") Active Members
+            .right-side
+              .search-row
+                img(src="assets/icons/search.png", alt="search")
+                input(type="text", placeholder="Search")
+      
+          table
+            thead
+              tr
+                th Customer Name
+                th Company
+                th Phone Number
+                th Email
+                th Country
+                th Status
+            tbody
+              tr
+                td Jane Cooper
+                td Microsoft
+                td (225) 555-0118
+                td jane@microsoft.com
+                td United States
+                td.active Active
+              tr
+                td Floyd Miles
+                td Yahoo
+                td (205) 555-0100
+                td floyd@yahoo.com
+                td Kiribati
+                td.inactive Inactive
+              tr
+                td Ronald Richards
+                td Adobe
+                td (302) 555-0107
+                td ronald@adobe.com
+                td Israel
+                td.inactive Inactive
+              tr
+                td Marvin McKinney
+                td Tesla
+                td (252) 555-0126
+                td marvin@tesla.com
+                td Iran
+                td.active Active
+              tr
+                td Jerome Bell
+                td Google
+                td (629) 555-0129
+                td jerome@google.com
+                td Réunion
+                td.active Active
+              tr
+                td Kathryn Murphy
+                td Microsoft
+                td (406) 555-0120
+                td kathryn@microsoft.com
+                td Curaçao
+                td.active Active
+              tr
+                td Jacob Jones
+                td Yahoo
+                td (208) 555-0112
+                td jacob@yahoo.com
+                td Brazil
+                td.active Active
+              tr
+                td Kristin Watson
+                td Facebook
+                td (704) 555-0127
+                td kristin@facebook.com
+                td Åland Islands
+                td.inactive Inactive
+
+          .pagination
+            span Showing data 1 to 8 of 256K entries
+            ul
+              li
+                a(href="#") &lt;
+              li.active
+                a(href="#") 1
+              li
+                a(href="#") 2
+              li
+                a(href="#") 3
+              li
+                a(href="#") 4
+              li
+                a(href="#") ...
+              li
+                a(href="#") 40
+              li
+                a(href="#") &gt;
+    script(src = "js/nav.js")

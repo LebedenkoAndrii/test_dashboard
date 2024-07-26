@@ -1,0 +1,429 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oranienbaum&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "./variables";
+@import "./mixins";
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  font-size: $font-size;
+  background-color: $background-color;
+
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+
+  position: relative;
+
+  z-index: 1;
+}
+.nav-btn {
+  display: none;
+
+  height: 3em;
+
+  cursor: pointer;
+
+  z-index: 90;
+
+  @include respond-to(tablet) {
+    display: block;
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}
+.mobile-menu {
+  display: none;
+}
+.mobile-menu.active {
+  @include flex-column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: 40%;
+  background-color: #f2f3f4;
+
+  z-index: 50;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+  .logo {
+    @include flex-center;
+    margin-top: 40px;
+    gap: 20px;
+
+    @include respond-to(mobile) {
+      margin-top: 10px;
+    }
+  }
+  nav ul {
+    @include flex-column;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+
+    @include respond-to(mobile) {
+      gap: 30px;
+    }
+
+    li {
+      @include flex-center;
+      position: relative;
+      width: 200px;
+      gap: 20px;
+      padding: 10px 15px;
+      border-radius: 10px;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2em;
+      }
+      &.active {
+        a {
+          color: $pagination-active-color;
+        }
+        &::after {
+          content: ">";
+          color: #fff;
+          font-weight: 500;
+        }
+        background-color: $sidebar-active-bg-color;
+      }
+
+      &:hover {
+        a {
+          color: $pagination-active-color;
+          @include transition(all 0.1s ease);
+        }
+        background-color: $pagination-hover-bg-color;
+        &::after {
+          content: ">";
+          color: #fff;
+          font-weight: 500;
+        }
+      }
+      &::after {
+        content: ">";
+        position: absolute;
+        right: 15px;
+        font-size: 1.2em;
+        font-weight: 500;
+      }
+    }
+  }
+  .profile {
+    @include flex-center;
+    gap: 20px;
+
+    .profile-info {
+      @include flex-center;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+}
+.sidebar {
+  width: $sidebar-width;
+  background-color: $sidebar-bg-color;
+  padding: 40px 40px 80px;
+  @include box-shadow($sidebar-shadow);
+  @include flex-center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include respond-to(tablet) {
+    display: none;
+  }
+
+  .logo {
+    @include flex-center;
+    gap: 10px;
+    h1 {
+      font-size: 1.6em;
+      margin: auto 0;
+    }
+  }
+
+  nav {
+    width: 100%;
+    ul {
+      @include flex-column;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        @include flex-center;
+        @include transition(all 0.3s ease);
+        @include border-radius(10px);
+
+        gap: 15px;
+        padding: 10px;
+        width: 100%;
+        min-height: 45px;
+        position: relative;
+
+        a {
+          text-decoration: none;
+          color: #333;
+        }
+        &.active {
+          a {
+            color: $pagination-active-color;
+          }
+          &::after {
+            content: ">";
+            color: #fff;
+            font-weight: 500;
+          }
+          background-color: $sidebar-active-bg-color;
+        }
+
+        &:hover {
+          a {
+            color: $pagination-active-color;
+            @include transition(all 0.1s ease);
+          }
+          background-color: $pagination-hover-bg-color;
+          &::after {
+            content: ">";
+            color: #fff;
+            font-weight: 500;
+          }
+        }
+        &::after {
+          content: ">";
+          position: absolute;
+          right: 15px;
+          font-size: 1.2em;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .profile {
+    @include flex-center;
+    width: 100%;
+
+    img {
+      border-radius: 50%;
+      width: $profile-img-size;
+      height: $profile-img-size;
+      margin-right: 10px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    span {
+      font-size: 14px;
+      color: #888;
+    }
+  }
+}
+.profile-info {
+  @include flex-column;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: scroll;
+
+  .header {
+    margin: 40px 0;
+    padding-left: 25px;
+
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+
+  .content {
+    @include box-shadow($table-shadow);
+    @include border-radius(30px);
+
+    background-color: #fff;
+
+    margin: 0 70px 50px 95px;
+    padding: 30px 40px 25px;
+
+    @include respond-to(tablet) {
+      margin: 25px;
+      padding: 20px 25px;
+      overflow-x: scroll;
+    }
+
+    .top-content {
+      @include flex-center;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+
+      @include respond-to(mobile) {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .left-side {
+        @include flex-column;
+        @include respond-to(mobile) {
+          align-items: center;
+        }
+        h2 {
+          font-size: 1.4em;
+          margin: 0 0 10px;
+        }
+
+        a {
+          text-decoration: none;
+          @include transition(all 0.3s ease-out);
+          color: $light-green;
+
+          &:hover {
+            font-weight: 500;
+          }
+        }
+      }
+      .right-side {
+        .search-row {
+          @include flex-center;
+          gap: 10px;
+          background-color: #f9fbff;
+          border: none;
+          padding: 8px;
+          @include border-radius(10px);
+          img {
+            cursor: pointer;
+          }
+          input {
+            min-width: 215px;
+            border: none;
+            background: transparent;
+            font-size: $small-font-size;
+
+            &:focus {
+              outline: none;
+            }
+            &::placeholder {
+              color: $light-gray;
+            }
+          }
+        }
+      }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: $table-bg-color;
+      @include border-radius(10px);
+      @include respond-to(mobile) {
+        overflow-x: scroll;
+      }
+      th,
+      td {
+        white-space: nowrap;
+      }
+
+      thead {
+        border-bottom: 1px solid $table-border-color;
+        th {
+          color: $light-gray;
+          text-align: left;
+          padding: 15px 0;
+
+          font-weight: 400;
+          opacity: 90%;
+        }
+      }
+
+      tbody {
+        td {
+          font-weight: 500;
+          padding: 20px 0;
+          border-bottom: 1px solid $table-border-color;
+
+          &.active {
+            color: $dark-green;
+            font-weight: bold;
+          }
+
+          &.inactive {
+            color: $dark-red;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  span {
+    font-size: 14px;
+    color: $light-gray;
+  }
+
+  ul {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      @include flex-center;
+      justify-content: center;
+      text-align: center;
+
+      a {
+        @include border-radius(5px);
+        @include transition(all 0.2s ease-out);
+        width: 1.5em;
+        height: 1.5em;
+        background-color: $pagination-bg-color;
+        color: $dard-grey;
+        font-weight: 500;
+        text-decoration: none;
+
+        padding: 5px;
+        margin: 0 auto;
+
+        &.active {
+          background-color: $pagination-active-bg-color;
+          color: $pagination-active-color;
+        }
+
+        &:hover {
+          color: #fff;
+          background-color: $pagination-hover-bg-color;
+        }
+      }
+    }
+  }
+}
